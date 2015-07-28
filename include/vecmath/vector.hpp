@@ -588,6 +588,96 @@ namespace vcm
 
 	//returns a quaternion from euler angles
 	quat euler(const vec3& euler);
+
+    //INLINE CONSTRUCTORS
+
+    //VEC2
+
+    inline vec2::vec2() : x(0), y(0) {}
+
+    inline vec2::vec2(float all) : x(all), y(all) {}
+
+    inline vec2::vec2(float x, float y) : x(x), y(y) {}
+
+    inline vec2::vec2(const vec2& v) : x(v.x), y(v.y) {}
+
+    inline vec2::vec2(const vec3& v) : x(v.x), y(v.y) {}
+
+    inline vec2::vec2(const vec4& v) : x(v.x), y(v.y) {}
+
+    //VEC3
+
+    inline vec3::vec3() : x(0), y(0), z(0) {}
+
+    inline vec3::vec3(float all) : x(all), y(all), z(all) {}
+
+    inline vec3::vec3(float x, float y, float z) : x(x), y(y), z(z) {}
+
+    inline vec3::vec3(const vec3& v) : x(v.x), y(v.y), z(v.z) {}
+
+    inline vec3::vec3(const vec2& xy, float z) : x(xy[0]), y(xy[1]), z(z) {}
+
+    inline vec3::vec3(float x, const vec2& yz) : x(x), y(yz[0]), z(yz[1]) {}
+
+    inline vec3::vec3(const vec2& v) : x(v.x), y(v.y), z(0) {}
+
+    inline vec3::vec3(const vec4& v) : x(v.x), y(v.y), z(v.z) {}
+
+    //VEC4
+
+    inline vec4::vec4() : x(0), y(0), z(0), w(0) {}
+
+    inline vec4::vec4(float all) : x(all), y(all), z(all), w(all) {}
+
+    inline vec4::vec4(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+
+    inline vec4::vec4(const vec4& v) : x(v.x), y(v.y), z(v.z), w(v.w) {}
+
+    inline vec4::vec4(const vec3& xyz, float w) : x(xyz[0]), y(xyz[1]), z(xyz[2]), w(w) {}
+
+    inline vec4::vec4(float x, const vec3& yzw) : x(x), y(yzw[0]), z(yzw[1]), w(yzw[2]) {}
+
+    inline vec4::vec4(const vec2& xy, const vec2& zw) : x(xy[0]), y(xy[1]), z(zw[0]), w(zw[1]) {}
+
+    inline vec4::vec4(const vec2& xy, float z, float w) : x(xy[0]), y(xy[1]), z(z), w(w) {}
+
+    inline vec4::vec4(float x, const vec2& yz, float w) : x(x), y(yz[0]), z(yz[1]), w(w) {}
+
+    inline vec4::vec4(float x, float y, const vec2& zw) : x(x), y(y), z(zw[0]), w(zw[1]) {}
+
+    inline vec4::vec4(const vec2& v) : x(v.x), y(v.y), z(0), w(0) {}
+
+    inline vec4::vec4(const vec3& v) : x(v.x), y(v.y), z(v.z), w(0) {}
+
+    inline vec4::vec4(const quat& q) : x(q.x), y(q.y), z(q.z), w(q.w) {}
+
+    //QUAT
+
+    inline quat::quat() : x(0), y(0), z(0), w(1) {}
+
+    inline quat::quat(float all) : x(all), y(all), z(all), w(all) {}
+
+    inline quat::quat(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+
+    inline quat::quat(const quat& q) : x(q.x), y(q.y), z(q.z), w(q.w) {}
+
+    inline quat::quat(const vec3& xyz, float w) : x(xyz[0]), y(xyz[1]), z(xyz[2]), w(w) {}
+
+    inline quat::quat(float x, const vec3& yzw) : x(x), y(yzw[0]), z(yzw[1]), w(yzw[2]) {}
+
+    inline quat::quat(const vec2& xy, const vec2& zw) : x(xy[0]), y(xy[1]), z(zw[0]), w(zw[1]) {}
+
+    inline quat::quat(const vec2& xy, float z, float w) : x(xy[0]), y(xy[1]), z(z), w(w) {}
+
+    inline quat::quat(float x, const vec2& yz, float w) : x(x), y(yz[0]), z(yz[1]), w(w) {}
+
+    inline quat::quat(float x, float y, const vec2& zw) : x(x), y(y), z(zw[0]), w(zw[1]) {}
+
+    inline quat::quat(const vec2& v) : x(v.x), y(v.y), z(0), w(1) {}
+
+    inline quat::quat(const vec3& v) : x(v.x), y(v.y), z(v.z), w(1) {}
+
+    inline quat::quat(const vec4& v) : x(v.x), y(v.y), z(v.z), w(v.w) {}
 }
 
 #endif

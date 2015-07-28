@@ -4,42 +4,6 @@
 
 namespace vcm
 {
-	mat2::mat2() 
-	{
-		m[0] = { 1, 0 };
-		m[1] = { 0, 1 };
-	}
-
-	mat2::mat2(float all) 
-	{
-		m[0] = { all };
-		m[1] = { all };
-	}
-
-	mat2::mat2(const vec2& a, const vec2& b) 
-	{
-		m[0] = a;
-		m[1] = b;
-	}
-
-	mat2::mat2(const mat2& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-	}
-
-	mat2::mat2(const mat3& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-	}
-
-	mat2::mat2(const mat4& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-	}
-
 	mat2 mat2::operator*(const mat2& other) const 
 	{
 		mat2 result;
@@ -101,48 +65,6 @@ namespace vcm
 		};
 
 		return result;
-	}
-	
-	mat3::mat3() 
-	{
-		m[0] = { 1, 0, 0 };
-		m[1] = { 0, 1, 0 };
-		m[2] = { 0, 0, 1 };
-	}
-
-	mat3::mat3(float all) 
-	{
-		m[0] = { all };
-		m[1] = { all };
-		m[2] = { all };
-	}
-
-	mat3::mat3(const vec3& a, const vec3& b, const vec3& c) 
-	{
-		m[0] = a;
-		m[1] = b;
-		m[2] = c;
-	}
-
-	mat3::mat3(const mat3& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-		m[2] = other.m[2];
-	}
-
-	mat3::mat3(const mat2& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-		m[2] = { 0, 0, 1 };
-	}
-
-	mat3::mat3(const mat4& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-		m[2] = other.m[2];
 	}
 
 	mat3::mat3(const quat& other) 
@@ -249,54 +171,6 @@ namespace vcm
 		auto u = cross(r, fwd);
 
 		return mat3(normalize(r), normalize(u), normalize(-fwd));
-	}
-	
-	mat4::mat4() 
-	{
-		m[0] = { 1, 0, 0, 0 };
-		m[1] = { 0, 1, 0, 0 };
-		m[2] = { 0, 0, 1, 0 };
-		m[3] = { 0, 0, 0, 1 };
-	}
-
-	mat4::mat4(float all) 
-	{
-		m[0] = { all };
-		m[1] = { all };
-		m[2] = { all };
-		m[3] = { all };
-	}
-
-	mat4::mat4(const vec4& a, const vec4& b, const vec4& c, const vec4& d) 
-	{
-		m[0] = a;
-		m[1] = b;
-		m[2] = c;
-		m[3] = d;
-	}
-
-	mat4::mat4(const mat4& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-		m[2] = other.m[2];
-		m[3] = other.m[3];
-	}
-
-	mat4::mat4(const mat2& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-		m[2] = { 0 };
-		m[3] = { 0 };
-	}
-
-	mat4::mat4(const mat3& other) 
-	{
-		m[0] = other.m[0];
-		m[1] = other.m[1];
-		m[2] = other.m[2];
-		m[3] = { 0, 0, 0, 1 };
 	}
 
 	mat4 mat4::operator*(const mat4& other) const 

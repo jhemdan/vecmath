@@ -294,6 +294,140 @@ namespace vcm
 	//with the y axis ranging from bottom to top
 	//and the z axis ranging from znear to zfar
 	mat4 orthographic(float left, float right, float bottom, float top, float znear, float zfar);
+
+    //INLINE CONSTRUCTORS
+
+    //MAT2
+
+    inline mat2::mat2()
+    {
+        m[0] = { 1, 0 };
+        m[1] = { 0, 1 };
+    }
+
+    inline mat2::mat2(float all)
+    {
+        m[0] = { all };
+        m[1] = { all };
+    }
+
+    inline mat2::mat2(const vec2& a, const vec2& b)
+    {
+        m[0] = a;
+        m[1] = b;
+    }
+
+    inline mat2::mat2(const mat2& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+    }
+
+    inline mat2::mat2(const mat3& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+    }
+
+    inline mat2::mat2(const mat4& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+    }
+
+    //MAT3
+
+    inline mat3::mat3()
+    {
+        m[0] = { 1, 0, 0 };
+        m[1] = { 0, 1, 0 };
+        m[2] = { 0, 0, 1 };
+    }
+
+    inline mat3::mat3(float all)
+    {
+        m[0] = { all };
+        m[1] = { all };
+        m[2] = { all };
+    }
+
+    inline mat3::mat3(const vec3& a, const vec3& b, const vec3& c)
+    {
+        m[0] = a;
+        m[1] = b;
+        m[2] = c;
+    }
+
+    inline mat3::mat3(const mat3& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+        m[2] = other.m[2];
+    }
+
+    inline mat3::mat3(const mat2& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+        m[2] = { 0, 0, 1 };
+    }
+
+    inline mat3::mat3(const mat4& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+        m[2] = other.m[2];
+    }
+
+    //MAT4
+
+    inline mat4::mat4()
+    {
+        m[0] = { 1, 0, 0, 0 };
+        m[1] = { 0, 1, 0, 0 };
+        m[2] = { 0, 0, 1, 0 };
+        m[3] = { 0, 0, 0, 1 };
+    }
+
+    inline mat4::mat4(float all)
+    {
+        m[0] = { all };
+        m[1] = { all };
+        m[2] = { all };
+        m[3] = { all };
+    }
+
+    inline mat4::mat4(const vec4& a, const vec4& b, const vec4& c, const vec4& d)
+    {
+        m[0] = a;
+        m[1] = b;
+        m[2] = c;
+        m[3] = d;
+    }
+
+    inline mat4::mat4(const mat4& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+        m[2] = other.m[2];
+        m[3] = other.m[3];
+    }
+
+    inline mat4::mat4(const mat2& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+        m[2] = { 0 };
+        m[3] = { 0 };
+    }
+
+    inline mat4::mat4(const mat3& other)
+    {
+        m[0] = other.m[0];
+        m[1] = other.m[1];
+        m[2] = other.m[2];
+        m[3] = { 0, 0, 0, 1 };
+    }
 }
 
 #endif
