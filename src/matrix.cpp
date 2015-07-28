@@ -58,10 +58,13 @@ namespace vcm
 
 	mat2 from_angle(float angle) 
 	{
+        auto c = std::cos(angle);
+        auto s = std::sin(angle);
+
 		mat2 result = 
 		{
-			{ std::cos(angle), std::sin(angle) },
-			{ -std::sin(angle), std::cos(angle) }
+			{ c, s },
+			{ -s, c }
 		};
 
 		return result;
