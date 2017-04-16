@@ -12,7 +12,7 @@ namespace vcm
 		mat2();
 
 		//creates a matrix with every component set to the value of 'all'
-		mat2(float all);
+		explicit mat2(float all);
 
 		//creates a matrix with column vectors 'a', and 'b'
 		mat2(const vec2& a, const vec2& b);
@@ -21,10 +21,10 @@ namespace vcm
 		mat2(const mat2& other);
 
 		//creates a matrix from an existing matrix
-		mat2(const mat3& other);
+		explicit mat2(const mat3& other);
 
 		//creates a matrix from an existing matrix
-		mat2(const mat4& other);
+		explicit mat2(const mat4& other);
 
 		vec2& operator[](unsigned i) { return m[i]; }
 		vec2 operator[](unsigned i) const { return m[i]; }
@@ -100,7 +100,7 @@ namespace vcm
 		mat3();
 
 		//creates a matrix with every component set to the value of 'all'
-		mat3(float all);
+		explicit mat3(float all);
 
 		//creates a matrix with column vectors 'a', 'b', and 'c'
 		mat3(const vec3& a, const vec3& b, const vec3& c);
@@ -109,13 +109,13 @@ namespace vcm
 		mat3(const mat3& other);
 
 		//creates a matrix from an existing matrix
-		mat3(const mat2& other);
+		explicit mat3(const mat2& other);
 
 		//creates a matrix from an existing matrix
-		mat3(const mat4& other);
+		explicit mat3(const mat4& other);
 
 		//creates a rotation matrix from an existing quaternion
-		mat3(const quat& quat);
+		explicit mat3(const quat& other);
 
 		vec3& operator[](unsigned i) { return m[i]; }
 		vec3 operator[](unsigned i) const { return m[i]; }
@@ -192,7 +192,7 @@ namespace vcm
 		mat4();
 
 		//creates a matrix with every component set to the value of 'all'
-		mat4(float all);
+		explicit mat4(float all);
 
 		//creates a matrix from column vectors 'a', 'b', 'c', and 'd'
 		mat4(const vec4& a, const vec4& b, const vec4& c, const vec4& d);
@@ -201,10 +201,10 @@ namespace vcm
 		mat4(const mat4& other);
 
 		//creates a matrix from an existing matrix
-		mat4(const mat2& other);
+		explicit mat4(const mat2& other);
 
 		//creates a matrix from an existing matrix
-		mat4(const mat3& other);
+		explicit mat4(const mat3& other);
 
 		vec4& operator[](unsigned i) { return m[i]; }
 		vec4 operator[](unsigned i) const { return m[i]; }
@@ -307,8 +307,8 @@ namespace vcm
 
     inline mat2::mat2(float all)
     {
-        m[0] = { all };
-        m[1] = { all };
+        m[0] = vcm::vec2{ all };
+        m[1] = vcm::vec2{ all };
     }
 
     inline mat2::mat2(const vec2& a, const vec2& b)
@@ -325,14 +325,14 @@ namespace vcm
 
     inline mat2::mat2(const mat3& other)
     {
-        m[0] = other.m[0];
-        m[1] = other.m[1];
+        m[0] = (vcm::vec2)other.m[0];
+        m[1] = (vcm::vec2)other.m[1];
     }
 
     inline mat2::mat2(const mat4& other)
     {
-        m[0] = other.m[0];
-        m[1] = other.m[1];
+        m[0] = (vcm::vec2)other.m[0];
+        m[1] = (vcm::vec2)other.m[1];
     }
 
     //MAT3
@@ -346,9 +346,9 @@ namespace vcm
 
     inline mat3::mat3(float all)
     {
-        m[0] = { all };
-        m[1] = { all };
-        m[2] = { all };
+        m[0] = vcm::vec3{ all };
+        m[1] = vcm::vec3{ all };
+        m[2] = vcm::vec3{ all };
     }
 
     inline mat3::mat3(const vec3& a, const vec3& b, const vec3& c)
@@ -367,16 +367,16 @@ namespace vcm
 
     inline mat3::mat3(const mat2& other)
     {
-        m[0] = other.m[0];
-        m[1] = other.m[1];
+        m[0] = (vcm::vec3)other.m[0];
+        m[1] = (vcm::vec3)other.m[1];
         m[2] = { 0, 0, 1 };
     }
 
     inline mat3::mat3(const mat4& other)
     {
-        m[0] = other.m[0];
-        m[1] = other.m[1];
-        m[2] = other.m[2];
+        m[0] = (vcm::vec3)other.m[0];
+        m[1] = (vcm::vec3)other.m[1];
+        m[2] = (vcm::vec3)other.m[2];
     }
 
     //MAT4
@@ -391,10 +391,10 @@ namespace vcm
 
     inline mat4::mat4(float all)
     {
-        m[0] = { all };
-        m[1] = { all };
-        m[2] = { all };
-        m[3] = { all };
+        m[0] = vcm::vec4{ all };
+        m[1] = vcm::vec4{ all };
+        m[2] = vcm::vec4{ all };
+        m[3] = vcm::vec4{ all };
     }
 
     inline mat4::mat4(const vec4& a, const vec4& b, const vec4& c, const vec4& d)
@@ -415,17 +415,17 @@ namespace vcm
 
     inline mat4::mat4(const mat2& other)
     {
-        m[0] = other.m[0];
-        m[1] = other.m[1];
-        m[2] = { 0 };
-        m[3] = { 0 };
+        m[0] = (vcm::vec4)other.m[0];
+        m[1] = (vcm::vec4)other.m[1];
+        m[2] = { 0, 0, 1, 0 };
+        m[3] = { 0, 0, 0, 1 };
     }
 
     inline mat4::mat4(const mat3& other)
     {
-        m[0] = other.m[0];
-        m[1] = other.m[1];
-        m[2] = other.m[2];
+        m[0] = (vcm::vec4)other.m[0];
+        m[1] = (vcm::vec4)other.m[1];
+        m[2] = (vcm::vec4)other.m[2];
         m[3] = { 0, 0, 0, 1 };
     }
 }

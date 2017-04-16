@@ -12,7 +12,7 @@ namespace vcm
 		vec2();
 
 		//creates a vector with all components equal to 'all'
-		vec2(float all);
+		explicit vec2(float all);
 
 		vec2(float x, float y);
 
@@ -20,10 +20,10 @@ namespace vcm
 		vec2(const vec2& v);
 
 		//creates a vector with all components set to the corresponding components of 'v'
-		vec2(const vec3& v);
+		explicit vec2(const vec3& v);
 
 		//creates a vector with all components set to the corresponding components of 'v'
-		vec2(const vec4& v);
+		explicit vec2(const vec4& v);
 
 		float& operator[](unsigned i) { return m[i]; }
 		float operator[](unsigned i) const { return m[i]; }
@@ -143,7 +143,7 @@ namespace vcm
 		vec3();
 
 		//creates a vector with all components equal to 'all'
-		vec3(float all);
+		explicit vec3(float all);
 
 		vec3(float x, float y, float z);
 
@@ -154,10 +154,10 @@ namespace vcm
 		vec3(float x, const vec2& yz);
 
 		//creates a vector with the components equal to the corresponding components of 'v'
-		vec3(const vec2& v);
+		explicit vec3(const vec2& v);
 
 		//creates a vector with the components equal to the corresponding components of 'v'
-		vec3(const vec4& v);
+		explicit vec3(const vec4& v);
 
 		float& operator[](unsigned i) { return m[i]; }
 		float operator[](unsigned i) const { return m[i]; }
@@ -289,7 +289,7 @@ namespace vcm
 		vec4();
 
 		//creates a vector with all components equal to 'all'
-		vec4(float all);
+		explicit vec4(float all);
 
 		vec4(float x, float y, float z, float w);
 
@@ -304,13 +304,13 @@ namespace vcm
 		vec4(float x, float y, const vec2& zw);
 
 		//creates a vector with all components set to the corresponding components of 'v'
-		vec4(const vec2& v);
+		explicit vec4(const vec2& v);
 
 		//creates a vector with all components set to the corresponding components of 'v'
-		vec4(const vec3& v);
+		explicit vec4(const vec3& v);
 
 		//creates a vector with all components set to the corresponding components of 'q'
-		vec4(const quat& q);
+		explicit vec4(const quat& q);
 
 		float& operator[](unsigned i) { return m[i]; }
 		float operator[](unsigned i) const { return m[i]; }
@@ -446,7 +446,7 @@ namespace vcm
 		quat();
 
 		//creates a quaternion with every component set to 'all'
-		quat(float all);
+		explicit quat(float all);
 
 		quat(float x, float y, float z, float w);
 
@@ -461,16 +461,16 @@ namespace vcm
 		quat(float x, float y, const vec2& zw);
 
 		//creates a quaternion with the first two components equal to the components of v
-		quat(const vec2& v);
+		explicit quat(const vec2& v);
 
 		//creates a quaternion with the first two components equal to the components of v
-		quat(const vec3& v);
+		explicit quat(const vec3& v);
 
 		//creates a quaternion with the components equal to the components of v
-		quat(const vec4& v);
+		explicit quat(const vec4& v);
 
 		//creates a quaternion from an existing rotation matrix
-		quat(const mat3& mat);
+		explicit quat(const mat3& mat);
 
 		float& operator[](unsigned i) { return m[i]; }
 		float operator[](unsigned i) const { return m[i]; }

@@ -269,7 +269,7 @@ namespace vcm
 
 	mat4 compose(const vec3& tran, const quat& rot) 
 	{
-		mat4 result = mat3(rot);
+		mat4 result = (mat4)mat3(rot);
 		result.m[3] = { tran, 1 };
 
 		return result;
@@ -277,7 +277,7 @@ namespace vcm
 
 	mat4 compose(const vec3& tran, const quat& rot, const vec3& scale) 
 	{
-		mat4 result = mat3(rot);
+		mat4 result = (mat4)mat3(rot);
 		result.m[0] *= scale.x;
 		result.m[1] *= scale.y;
 		result.m[2] *= scale.z;
@@ -318,7 +318,7 @@ namespace vcm
 
 	mat4 look_at(const vec3& start, const vec3& end, const vec3& up) 
 	{
-		mat4 result = look_rotation(end - start, up);
+		mat4 result = (mat4)look_rotation(end - start, up);
 		result.m[3] = { start, 1 };
 		return result;
 	}
